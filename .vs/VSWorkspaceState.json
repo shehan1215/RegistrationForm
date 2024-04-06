@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\RegiterForm",
+    "\\RegiterForm\\RegiterForm"
   ],
+  "SelectedNode": "\\RegiterForm\\RegiterForm\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }
