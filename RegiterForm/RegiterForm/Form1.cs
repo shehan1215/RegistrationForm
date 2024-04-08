@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RegiterForm
 {
@@ -32,7 +33,7 @@ namespace RegiterForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            reg();
         }
 
         private void reg()
@@ -46,6 +47,37 @@ namespace RegiterForm
 
             string MySQLConnectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=registration";
             MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
+
+            try
+            {
+                databaseConnection.Open();
+
+                // Query to check if username and password match
+                string query = "INSERT INTO user_reg (firstName=@fName, lastName=@lName, phone_number=@pNo, email=@email, street=@streetNo, address=@add) ";
+                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+
+                MySqlDataReader reader = commandDatabase.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    MessageBox.Show("Register Successful");
+                }
+                else
+                {
+                    MessageBox.Show("Register not Successful");
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                databaseConnection.Close();
+            }
+
         }
     }
 }
