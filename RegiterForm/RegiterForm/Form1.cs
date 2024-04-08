@@ -72,7 +72,7 @@ namespace RegiterForm
                 {
                     MessageBox.Show("Register not Successful");
                 }
-                rowsAffected.Close();
+               
             }
             catch (Exception ex)
             {

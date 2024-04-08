@@ -23,3 +23,5 @@ D:\C#Practice\Registration\RegiterForm\RegiterForm\obj\Debug\RegiterForm.csproj.
 D:\C#Practice\Registration\RegiterForm\RegiterForm\obj\Debug\RegiterF.E65572C2.Up2Date
 D:\C#Practice\Registration\RegiterForm\RegiterForm\obj\Debug\RegiterForm.exe
 D:\C#Practice\Registration\RegiterForm\RegiterForm\obj\Debug\RegiterForm.pdb
+D:\C#Practice\Registration\RegiterForm\RegiterForm\bin\Debug\BouncyCastle.Cryptography.dll
+D:\C#Practice\Registration\RegiterForm\RegiterForm\bin\Debug\BouncyCastle.Cryptography.xml
