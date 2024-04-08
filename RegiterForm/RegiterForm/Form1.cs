@@ -52,13 +52,19 @@ namespace RegiterForm
             {
                 databaseConnection.Open();
 
-                // Query to check if username and password match
-                string query = "INSERT INTO user_reg (firstName=@fName, lastName=@lName, phone_number=@pNo, email=@email, street=@streetNo, address=@add) ";
+                string query = "INSERT INTO user_reg (firstName, lastName, phone_number, email, street, address) VALUES (@fName, @lName, @pNo, @email, @streetNo, @add)";
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
 
-                MySqlDataReader reader = commandDatabase.ExecuteReader();
+                commandDatabase.Parameters.AddWithValue("@fName", fName);
+                commandDatabase.Parameters.AddWithValue("@lName", lName);
+                commandDatabase.Parameters.AddWithValue("@pNo", pNo);
+                commandDatabase.Parameters.AddWithValue("@email", email);
+                commandDatabase.Parameters.AddWithValue("@streetNo", streetNo);
+                commandDatabase.Parameters.AddWithValue("@add", add);
 
-                if (reader.Read())
+                int rowsAffected = commandDatabase.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
                 {
                     MessageBox.Show("Register Successful");
                 }
@@ -66,8 +72,7 @@ namespace RegiterForm
                 {
                     MessageBox.Show("Register not Successful");
                 }
-
-                reader.Close();
+                rowsAffected.Close();
             }
             catch (Exception ex)
             {
